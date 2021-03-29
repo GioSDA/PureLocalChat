@@ -4,3 +4,11 @@ main: io.github.giosda.simplelocalchat.SimpleLocalChat
 api-version: 1.16
 authors: [ GioSDA ]
 description: Adds local chat with a configurable distance. It works for custom chat mods and only in one dimension.
+
+commands:
+  global:
+    description: changes to local/global chat.
+    usage: /command
+  local:
+    description: changes to local/global chat.
+    usage: /command

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.GioSDA</groupId>
-    <artifactId>SimpleLocalChat</artifactId>
+    <artifactId>PureLocalChat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>SimpleLocalChat</name>
+    <name>PureLocalChat</name>
 
     <description>Adds local chat with a configurable distance. It works for custom chat mods and only in one
         dimension.
@@ -26,8 +26,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>

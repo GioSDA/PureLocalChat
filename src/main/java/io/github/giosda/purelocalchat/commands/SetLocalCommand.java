@@ -1,6 +1,6 @@
-package io.github.giosda.simplelocalchat.commands;
+package io.github.giosda.purelocalchat.commands;
 
-import io.github.giosda.simplelocalchat.SimpleLocalChat;
+import io.github.giosda.purelocalchat.PureLocalChat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class SetLocalCommand implements CommandExecutor {
 
-    SimpleLocalChat simpleLocalChat = SimpleLocalChat.getPlugin();
+    PureLocalChat simpleLocalChat = PureLocalChat.getPlugin();
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

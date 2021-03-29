@@ -1,6 +1,6 @@
-package io.github.giosda.simplelocalchat.listeners;
+package io.github.giosda.purelocalchat.listeners;
 
-import io.github.giosda.simplelocalchat.SimpleLocalChat;
+import io.github.giosda.purelocalchat.PureLocalChat;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 
 public class AsnycChatEventListener implements Listener {
 
-    SimpleLocalChat simpleLocalChat = SimpleLocalChat.getPlugin();
+    PureLocalChat simpleLocalChat = PureLocalChat.getPlugin();
 
     @EventHandler
     public void onAsyncPlayChatEvent(AsyncChatEvent e) {

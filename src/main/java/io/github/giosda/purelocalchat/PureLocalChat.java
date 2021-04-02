@@ -17,16 +17,20 @@ public final class PureLocalChat extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        //Setup config
+        this.getConfig().options().copyDefaults();
+        this.saveDefaultConfig();
+
         localChatDistance = getConfig().getDouble("local-chat-distance");
 
+        //Register events
         Bukkit.getPluginManager().registerEvents(new AsnycChatEventListener(), this);
-        this.getCommand("global").setExecutor(new SetLocalCommand());
         this.getCommand("local").setExecutor(new SetLocalCommand());
     }
 
     @Override
     public void onDisable() {
-        this.saveDefaultConfig();
+
     }
 
     public HashMap<UUID, Boolean> getLocalChat() {

@@ -10,13 +10,15 @@ import java.util.UUID;
 
 public final class PureLocalChat extends JavaPlugin {
 
-    private HashMap<UUID, Boolean> localChat;
+    private HashMap<UUID, Boolean> localChat = new HashMap<>();
     private double localChatDistance;
 
     private static PureLocalChat plugin;
 
     @Override
     public void onEnable() {
+        plugin = this;
+
         //Setup config
         this.getConfig().options().copyDefaults();
         this.saveDefaultConfig();

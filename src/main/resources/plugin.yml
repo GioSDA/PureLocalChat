@@ -1,9 +1,9 @@
 name: PureLocalChat
-version: 1
+version: 1.0
 main: io.github.giosda.purelocalchat.PureLocalChat
 api-version: 1.16
 authors: [ GioSDA ]
-description: Adds local chat with a configurable distance. It works for custom chat mods and only in one dimension.
+description: Adds local chat with a configurable distance. It works for custom chat mods and anything else thrown at it.
 
 commands:
   local:

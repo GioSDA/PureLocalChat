@@ -16,8 +16,16 @@ public class SetLocalCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            boolean local = !simpleLocalChat.getLocalChat().get(p.getUniqueId());
-            simpleLocalChat.getLocalChat().put(p.getUniqueId(), local);
+            Boolean local = simpleLocalChat.getLocalChat().get(p.getUniqueId());
+
+            //Make sure player has local set
+            if (local == null) {
+                simpleLocalChat.getLocalChat().put(p.getUniqueId(), true);
+                p.sendMessage("You have been moved to local chat.");
+                return true;
+            }
+
+            simpleLocalChat.getLocalChat().put(p.getUniqueId(), !local);
 
             if (local) p.sendMessage("You have been moved to local chat.");
             if (!local) p.sendMessage("You have been moved to global chat.");

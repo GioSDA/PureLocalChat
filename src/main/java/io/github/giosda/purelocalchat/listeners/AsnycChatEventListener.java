@@ -12,8 +12,17 @@ public class AsnycChatEventListener implements Listener {
     PureLocalChat simpleLocalChat = PureLocalChat.getPlugin();
 
     @EventHandler
-    public void onAsyncPlayChatEvent(AsyncChatEvent e) {
-        if (simpleLocalChat.getLocalChat().get(e.getPlayer().getUniqueId()).equals(false)) return;
+    public void onAsyncPlayerChatEvent(AsyncChatEvent e) {
+        Boolean local = simpleLocalChat.getLocalChat().get(e.getPlayer().getUniqueId());
+
+        //Make sure player has local set
+        if (local == null) {
+            simpleLocalChat.getLocalChat().put(e.getPlayer().getUniqueId(), false);
+            return;
+        }
+
+        //Make sure player has local as true
+        if (!local) return;
 
         e.setCancelled(true);
 

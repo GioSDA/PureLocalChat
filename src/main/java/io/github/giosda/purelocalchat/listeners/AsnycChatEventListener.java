@@ -22,13 +22,13 @@ public class AsnycChatEventListener implements Listener {
         }
 
         //Make sure player has local as true
-        if (!local) return;
+        if (local == false) return;
 
         if (simpleLocalChat.getLocalChat().get(e.getPlayer().getUniqueId()).equals(true)) {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.getWorld().equals(e.getPlayer().getWorld())) { // checks if players are in same world
                     if (p.getLocation().distanceSquared(e.getPlayer().getLocation()) < simpleLocalChat.getLocalChatDistance() * simpleLocalChat.getLocalChatDistance()) {
-                        p.sendMessage(e.getMessage());
+                        p.sendMessage("<" + e.getPlayer().getDisplayName() + "> " + e.getMessage());
                     }
                 }
             }

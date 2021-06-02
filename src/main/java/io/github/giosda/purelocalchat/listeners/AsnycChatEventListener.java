@@ -2,6 +2,7 @@ package io.github.giosda.purelocalchat.listeners;
 
 import io.github.giosda.purelocalchat.PureLocalChat;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,17 +25,18 @@ public class AsnycChatEventListener implements Listener {
         //Make sure player has local as true
         if (local == false) return;
 
-        if (simpleLocalChat.getLocalChat().get(e.getPlayer().getUniqueId()).equals(true)) {
-            for (Player p : Bukkit.getOnlinePlayers()) {
-                if (p.getWorld().equals(e.getPlayer().getWorld())) { // checks if players are in same world
-                    if (p.getLocation().distanceSquared(e.getPlayer().getLocation()) < simpleLocalChat.getLocalChatDistance() * simpleLocalChat.getLocalChatDistance()) {
-                        p.sendMessage("<" + e.getPlayer().getDisplayName() + "> " + e.getMessage());
-                    }
+        for (Player p : e.getRecipients()) {
+            if (p.getWorld().equals(e.getPlayer().getWorld())) { // checks if players are in same world
+                if (p.getLocation().distanceSquared(e.getPlayer().getLocation()) < simpleLocalChat.getLocalChatDistance() * simpleLocalChat.getLocalChatDistance()) {
+                    e.setFormat(ChatColor.GREEN + "[LOCAL] " + ChatColor.WHITE + "<" + e.getPlayer().getDisplayName() + "> " + e.getMessage()); //Prepends [LOCAL] to message
+                    continue;
                 }
             }
+
+            e.getRecipients().remove(p);
         }
 
-        e.setCancelled(true);
+
     }
 
 }
